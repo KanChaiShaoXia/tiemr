@@ -25,7 +25,7 @@ export default function useHook() {
   });
 
   useEffect(() => {
-    Taro.setNavigationBarTitle({ title: "时间" });
+    Taro.setNavigationBarTitle({ title: "时辰" });
   }, []);
 
   const getDate = (value: string, type: string) => {

@@ -18,7 +18,7 @@ const items = [
   {
     list: [
       {
-        title: "我，活了多久？",
+        title: "时辰",
         height: "13%",
         path: "/components/MyLifeTime/index",
         active: true
