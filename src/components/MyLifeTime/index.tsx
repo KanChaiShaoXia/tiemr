@@ -1,10 +1,26 @@
 /* eslint-disable jsx-quotes */
-import Taro from "@tarojs/taro";
+import Taro, { useEffect } from "@tarojs/taro";
 import { View, Swiper, SwiperItem, Text, Picker } from "@tarojs/components";
+import cx from "classnames";
 import useHook from "./hook";
 import style from "./style.module.scss";
 
 export default function MyLifeTime() {
+  useEffect(() => {
+    const updateManager = Taro.getUpdateManager();
+    updateManager.onUpdateReady(function() {
+      Taro.showModal({
+        title: "迭代",
+        content: "新版本已经准备好，是否重启应用？",
+        success: function(res) {
+          if (res.confirm) {
+            updateManager.applyUpdate();
+          }
+        }
+      });
+    });
+  }, []);
+
   const { date, time, getDate, dateInfo } = useHook();
 
   const timeList = [
@@ -22,7 +38,7 @@ export default function MyLifeTime() {
   ];
 
   return (
-    <View className={style.wrapper}>
+    <View className={cx(style.wrapper, date === "1949-10-01" && style.china)}>
       <Text className={style.title}>
         人寿几何，逝如朝霜。时无重至，华不再扬。
       </Text>
