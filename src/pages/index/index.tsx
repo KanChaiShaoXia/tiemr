@@ -30,6 +30,8 @@ const items = [
   }
 ];
 
+Taro.showShareMenu({ withShareTicket: true });
+
 export default class Index extends Component {
   config: Taro.Config = {
     navigationBarTitleText: "孤舟"

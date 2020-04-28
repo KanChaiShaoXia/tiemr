@@ -7,6 +7,7 @@ import style from "./style.module.scss";
 
 export default function MyLifeTime() {
   useEffect(() => {
+    Taro.showShareMenu({ withShareTicket: true });
     const updateManager = Taro.getUpdateManager();
     updateManager.onUpdateReady(function() {
       Taro.showModal({
