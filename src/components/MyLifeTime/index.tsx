@@ -37,11 +37,13 @@ export default function MyLifeTime() {
       ]
     }
   ];
-
+  const isChina = date === "1949-10-01";
   return (
-    <View className={cx(style.wrapper, date === "1949-10-01" && style.china)}>
+    <View className={cx(style.wrapper, isChina && style.china)}>
       <Text className={style.title}>
-        人寿几何，逝如朝霜。时无重至，华不再扬。
+        {isChina
+          ? "万里晴空，壮丽山河，赤旗飘扬。看九州方圆，普天同庆；江河歌唱，遍地流芳。"
+          : "人寿几何，逝如朝霜。时无重至，华不再扬。"}
       </Text>
       <Swiper autoplay interval={8000} className={style.swiper}>
         {timeList.map(item => {

@@ -10,9 +10,9 @@ const swiperList = [
 const items = [
   {
     list: [
-      { title: "尚未开发", height: "45%", path: "", active: false },
-      { title: "尚未开发", height: "13%", path: "", active: false },
-      { title: "尚未开发", height: "30%", path: "", active: false }
+      { title: "?", height: "45%", path: "", active: false },
+      { title: "?", height: "13%", path: "", active: false },
+      { title: "?", height: "30%", path: "", active: false }
     ]
   },
   {
@@ -23,9 +23,9 @@ const items = [
         path: "/components/MyLifeTime/index",
         active: true
       },
-      { title: "尚未开发", height: "13%", path: "", active: false },
-      { title: "尚未开发", height: "13%", path: "", active: true },
-      { title: "尚未开发", height: "45%", path: "", active: false }
+      { title: "?", height: "13%", path: "", active: false },
+      { title: "?", height: "13%", path: "", active: true },
+      { title: "?", height: "45%", path: "", active: false }
     ]
   }
 ];

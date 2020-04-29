@@ -5,13 +5,14 @@
 /rn_temp
 /.pnp
 .pnp.js
+package-lock.json
 
 # testing
 /coverage
 
 # production
 /build
-dist/
+/dist
 
 # misc
 .DS_Store
