@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "aboatApp",
-  "description": "aboatApp",
+  "projectname": "timer",
+  "description": "timer",
   "appid": "wx20d6d70aa45b97f8",
   "setting": {
     "urlCheck": true,

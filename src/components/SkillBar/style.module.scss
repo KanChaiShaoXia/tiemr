@@ -1,0 +1,61 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  font-size: 24px;
+  line-height: 38px;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .btn:hover {
+    cursor: pointer;
+    transition: color 0.1s;
+    color: #f0e6d2;
+  }
+}
+
+.btn:nth-child(2) {
+  margin-left: 10px;
+}
+
+.userBox {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.userAva {
+  cursor: pointer;
+  margin-right: 10px;
+  height: 50px;
+  width: 50px;
+  font-size: 0;
+  background: #011c2f;
+  border: 3px solid #785a28;
+  border-radius: 50%;
+}
+
+.skills {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 180px;
+}
+
+.skillImg {
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  border: 1px solid #785a28;
+  transition: filter 0.1s;
+  filter: brightness(0.5);
+  &:hover {
+    filter: brightness(1);
+  }
+  &:nth-child(-n + 5) {
+    margin-bottom: 3px;
+  }
+}

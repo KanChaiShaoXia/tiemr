@@ -1,93 +1,30 @@
-import Taro, { Component } from "@tarojs/taro";
-import { View, Swiper, SwiperItem, Text, ScrollView } from "@tarojs/components";
-import cx from "classnames";
-import style from "./style.module.scss";
+/* eslint-disable jsx-quotes */
+import Taro, { useState } from "@tarojs/taro";
+import { View } from "@tarojs/components";
+import { switchSkillStatus, useStore } from "../../store";
+import { SkillBar } from "../../components";
+import UserBox from "./userBox";
+import "./index.scss";
 
-const swiperList = [
-  { title: "我，活了多久？", path: "/components/MyLifeTime/index" }
-];
+export default function Index() {
+  const { openStatus } = useStore(switchSkillStatus);
+  const [userList] = useState([
+    { name: "上单", skill: ["shanxian", "chuansong"] },
+    { name: "打野", skill: ["shanxian", "chengjie"] },
+    { name: "中单", skill: ["shanxian", "yinran"] },
+    { name: "ADC", skill: ["shanxian", "zhiliao"] },
+    { name: "辅助", skill: ["shanxian", "xuruo"] }
+  ]);
 
-const items = [
-  {
-    list: [
-      { title: "?", height: "45%", path: "", active: false },
-      { title: "?", height: "13%", path: "", active: false },
-      { title: "?", height: "30%", path: "", active: false }
-    ]
-  },
-  {
-    list: [
-      {
-        title: "时辰",
-        height: "13%",
-        path: "/components/MyLifeTime/index",
-        active: true
-      },
-      { title: "?", height: "13%", path: "", active: false },
-      { title: "?", height: "13%", path: "", active: true },
-      { title: "?", height: "45%", path: "", active: false }
-    ]
-  }
-];
-
-Taro.showShareMenu({ withShareTicket: true });
-
-export default class Index extends Component {
-  config: Taro.Config = {
-    navigationBarTitleText: "孤舟"
-  };
-
-  render() {
-    return (
-      <ScrollView scrollY enableBackToTop className={style.wrapper}>
-        {/* 上 */}
-        <View className={style.swiperWrapper}>
-          <Swiper className={style.swiper}>
-            {swiperList.map(item => {
-              return (
-                <SwiperItem key={item.title} className={style.swiperItemBox}>
-                  <View
-                    onClick={() => Taro.navigateTo({ url: item.path })}
-                    className={style.swiperItem}
-                  >
-                    <Text>{item.title}</Text>
-                  </View>
-                </SwiperItem>
-              );
-            })}
-          </Swiper>
-        </View>
-        {/* 下 */}
-        <View className={style.listWrapper}>
-          {items.map((item, i) => {
-            return (
-              <View key={String(i)} className={style.itemLrR}>
-                {item.list.map(list => {
-                  return (
-                    <View
-                      key={list.title}
-                      onClick={() =>
-                        list.path && Taro.navigateTo({ url: list.path })
-                      }
-                      className={cx(style.block, list.active && style.active)}
-                      style={{ height: list.height }}
-                    >
-                      <Text
-                        className={cx(
-                          style.title,
-                          list.active && style.textActive
-                        )}
-                      >
-                        {list.title}
-                      </Text>
-                    </View>
-                  );
-                })}
-              </View>
-            );
-          })}
-        </View>
-      </ScrollView>
-    );
-  }
+  return (
+    <View className="wrapper">
+      <View className="close">×</View>
+      <View className={`box ${!openStatus ? "skillOpen" : "skillClose"}`}>
+        <UserBox userList={userList} />
+      </View>
+      <View className={`${openStatus ? "skillOpen" : "skillClose"}`}>
+        <SkillBar />
+      </View>
+    </View>
+  );
 }

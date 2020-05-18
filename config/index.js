@@ -1,5 +1,5 @@
 const config = {
-  projectName: "aboatApp",
+  projectName: "timer",
   date: "2020-4-26",
   designWidth: 750,
   deviceRatio: {

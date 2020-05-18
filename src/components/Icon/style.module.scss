@@ -1,0 +1,34 @@
+.item {
+  overflow: hidden;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  text-align: center;
+}
+
+.img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  font-size: 0;
+}
+
+.time {
+  line-height: 30px;
+  font-size: 12px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.mask {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  transform: translate3d(-25%, 0, 0);
+}
