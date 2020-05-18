@@ -14,17 +14,9 @@
   color: #cdbe91;
   position: relative;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+  justify-content: flex-start;
+  padding: 0 10px;
   max-width: 550px;
-}
-
-.box {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 2px;
 }
 
 .close {
@@ -49,8 +41,13 @@
 
 .list {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.listItem {
+  margin-right: 10px;
 }
 
 .skillClose {

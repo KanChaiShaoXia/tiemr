@@ -10,7 +10,7 @@ export default function UserBox(props) {
     <View className="list">
       {userList.map(item => {
         return (
-          <View key={item.name}>
+          <View className="listItem" key={item.name}>
             <User {...{ item }} />
           </View>
         );

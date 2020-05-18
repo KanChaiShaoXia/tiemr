@@ -3,63 +3,73 @@ export const data = new Set([]);
 export const list = [
   {
     name: "闪现",
-    time: 300,
+    resetTime: 300,
+    type: "shanxian",
     path: "",
-    type: "shanxian"
+    time: 0
   },
   {
     name: "引燃",
-    time: 180,
+    resetTime: 180,
+    type: "yinran",
     path: "",
-    type: "yinran"
+    time: 0
   },
   {
     name: "传送",
-    time: 420,
+    resetTime: 420,
+    type: "chuansong",
     path: "",
-    type: "chuansong"
+    time: 0
   },
   {
     name: "幽灵疾步",
-    time: 180,
+    resetTime: 180,
+    type: "jibu",
     path: "",
-    type: "jibu"
+    time: 0
   },
   {
     name: "治疗术",
-    time: 240,
+    resetTime: 240,
+    type: "zhiliao",
     path: "",
-    type: "zhiliao"
+    time: 0
   },
   {
     name: "屏障",
-    time: 180,
+    resetTime: 180,
+    type: "pingzhang",
     path: "",
-    type: "pingzhang"
+    time: 0
   },
   {
     name: "虚弱",
-    time: 210,
+    resetTime: 210,
+    type: "xuruo",
     path: "",
-    type: "xuruo"
+    time: 0
   },
   {
     name: "清晰术",
-    time: 240,
+    resetTime: 240,
+    type: "qingxishu",
     path: "",
-    type: "qingxishu"
+    time: 0
   },
   {
     name: "净化",
-    time: 210,
+    resetTime: 210,
+    type: "jinghua",
     path: "",
-    type: "jinghua"
+    time: 0
   },
   {
     name: "惩戒",
-    time: 15,
+    resetTime: 15,
+    type: "chengjie",
     path: "",
-    type: "chengjie"
+    time: 0
   }
 ];
 

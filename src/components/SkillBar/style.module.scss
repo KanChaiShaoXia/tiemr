@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   width: 100%;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 38px;
 }
 
@@ -33,7 +33,7 @@
   width: 50px;
   font-size: 0;
   background: #011c2f;
-  border: 3px solid #785a28;
+  border: 2px solid #785a28;
   border-radius: 50%;
 }
 
@@ -56,6 +56,6 @@
     filter: brightness(1);
   }
   &:nth-child(-n + 5) {
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
 }

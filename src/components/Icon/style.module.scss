@@ -1,10 +1,10 @@
 .item {
-  overflow: hidden;
-  position: relative;
   width: 30px;
   height: 30px;
-  background: #fff;
+  overflow: hidden;
+  position: relative;
   text-align: center;
+  background: #000000;
 }
 
 .img {
@@ -31,4 +31,23 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.75);
   transform: translate3d(-25%, 0, 0);
+}
+
+.active {
+  animation: timeDeno 0.7s 5 ease-in reverse;
+  .time {
+    opacity: 0;
+  }
+  .mask {
+    background-color: transparent;
+  }
+}
+
+@keyframes timeDeno {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(2);
+  }
 }
