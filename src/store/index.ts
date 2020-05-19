@@ -14,35 +14,37 @@ export function useStore(store) {
 
 // 计时器列表
 export const timers = new Store(
-  [
-    {
-      name: "上单",
-      skill: [data["shanxian"], data["chuansong"]]
-    },
-    {
-      name: "打野",
-      skill: [data["shanxian"], data["chengjie"]]
-    },
-    {
-      name: "中单",
-      skill: [data["shanxian"], data["yinran"]]
-    },
-    {
-      name: "ADC",
-      skill: [data["shanxian"], data["zhiliao"]]
-    },
-    {
-      name: "辅助",
-      skill: [data["shanxian"], data["xuruo"]]
-    }
-  ],
+  {
+    userList: [
+      {
+        name: "上单",
+        skill: [data["shanxian"], data["chuansong"]]
+      },
+      {
+        name: "打野",
+        skill: [data["shanxian"], data["chengjie"]]
+      },
+      {
+        name: "中单",
+        skill: [data["shanxian"], data["yinran"]]
+      },
+      {
+        name: "ADC",
+        skill: [data["shanxian"], data["zhiliao"]]
+      },
+      {
+        name: "辅助",
+        skill: [data["shanxian"], data["xuruo"]]
+      }
+    ]
+  },
   "timers"
 );
 
 export const timerInterval = new Store(
   setInterval(() => {
     console.log("运行中");
-    const userList = timers.get();
+    const { userList } = timers.get();
     for (let i = 0; i < userList.length; i++) {
       for (let j = 0; j < userList[i].skill.length; j++) {
         const item = userList[i].skill[j];
@@ -52,15 +54,14 @@ export const timerInterval = new Store(
   }, 1000)
 );
 
+// 修改技能
 export const changeTimer = agres => {
-  const userList = timers.get();
-  agres.forEach(skill =>
-    userList.map(item => {
-      if (skill.name === item.name) {
-        console.log("skill:", skill, "item:", item);
-      }
-    })
-  );
+  const { userList } = timers.get();
+  const result = userList.map(item => {
+    if (item.name === agres.name) item = agres;
+    return item;
+  });
+  timers.set(() => ({ userList: result }), "changeTimer");
 };
 
 // 选中的人物

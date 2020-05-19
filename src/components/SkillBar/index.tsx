@@ -1,39 +1,80 @@
 /* eslint-disable jsx-quotes */
-import Taro from "@tarojs/taro";
+import Taro, { useState } from "@tarojs/taro";
 import { View, Image } from "@tarojs/components";
-import { skillChange, checkUser } from "../../store";
-import { list, data } from "../../constant";
+import { skillChange, checkUser, changeTimer, useStore } from "../../store";
+import { list } from "../../constant";
+import cx from "classnames";
 import style from "./style.module.scss";
 
 export default function SkillBar() {
-  const {
-    user = {
-      name: "中单",
-      skill: [data["shanxian"], data["yinran"]]
+  const { user } = useStore(checkUser);
+  const [current, setCurrent] = useState(user);
+  const [active, setActive] = useState(null);
+
+  const backClick = () => {
+    skillChange();
+    setActive(null);
+    setCurrent(checkUser.get().user);
+  };
+
+  const saveClick = () => {
+    changeTimer(current);
+    backClick();
+  };
+
+  const skillClick = item => {
+    if (active === item.type) return;
+    let result = current.skill.map(i => {
+      if (i.type === active) i = item;
+      return i;
+    });
+    if (result[0].type === result[1].type) {
+      result = current.skill.reverse();
     }
-  } = checkUser.get();
+    setCurrent({ name: current.name, skill: result });
+    setActive(item.type);
+  };
 
   return (
     <View className={style.wrapper}>
       <View className={style.btns}>
-        <View className={style.btn} onClick={skillChange}>
+        <View className={style.btn} onClick={backClick}>
           返回
         </View>
-        <View className={style.btn}>保存</View>
+        <View className={style.btn} onClick={saveClick}>
+          保存
+        </View>
       </View>
       <View className={style.userBox}>
-        {user.skill.map(item => {
+        {current.skill.map(item => {
           return (
-            <Image key={item.type} className={style.userAva} src={item.path} />
+            <Image
+              key={item.type}
+              className={cx(
+                style.userAva,
+                item.type === active && style.active
+              )}
+              src={item.path}
+              onClick={() => setActive(item.type)}
+            />
           );
         })}
       </View>
       <View className={style.skills}>
-        {list.map(item => {
-          return (
-            <Image className={style.skillImg} key={item.type} src={item.path} />
-          );
-        })}
+        {active &&
+          list.map(item => {
+            return (
+              <Image
+                className={cx(
+                  style.skillImg,
+                  active === item.type && style.active
+                )}
+                key={item.type}
+                src={item.path}
+                onClick={() => skillClick(item)}
+              />
+            );
+          })}
       </View>
     </View>
   );

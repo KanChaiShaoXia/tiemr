@@ -8,8 +8,8 @@ import style from "./style.module.scss";
 export default function User(props) {
   const { item } = props;
   const clickItem = () => {
-    skillChange();
     checkActiveUser(item);
+    skillChange();
   };
   return (
     <View className={style.wrapper}>
