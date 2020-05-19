@@ -25,7 +25,7 @@ export default function Index() {
       }
       if (str) result += `|| ${user.name}: ${str}`;
     }
-    console.log(result);
+    Taro.setClipboardData({ data: result });
   };
 
   return (
