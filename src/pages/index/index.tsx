@@ -11,7 +11,7 @@ export default function Index() {
   const { userList } = useStore(timers);
 
   return (
-    <View className="wrapper">
+    <View className="wrapper" onContextMenu={e => e.preventDefault()}>
       <View className="close">×</View>
       <View className={`${!openStatus ? "skillOpen" : "skillClose"}`}>
         <UserBox userList={userList} />

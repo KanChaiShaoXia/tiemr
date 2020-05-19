@@ -1,19 +1,20 @@
 /* eslint-disable jsx-quotes */
 import Taro, { useState } from "@tarojs/taro";
 import { View, Image } from "@tarojs/components";
+import { deepClone } from "noahsark";
+import cx from "classnames";
 import { skillChange, checkUser, changeTimer, useStore } from "../../store";
 import { list } from "../../constant";
-import cx from "classnames";
 import style from "./style.module.scss";
 
 export default function SkillBar() {
   const { user } = useStore(checkUser);
-  const [current, setCurrent] = useState(JSON.parse(JSON.stringify(user)));
+  const [current, setCurrent] = useState(deepClone(user));
   const [active, setActive] = useState(null);
 
   const backClick = () => {
     setActive(null);
-    setCurrent(JSON.parse(JSON.stringify(user)));
+    setCurrent(deepClone(user));
     skillChange();
   };
 

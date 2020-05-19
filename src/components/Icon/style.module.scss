@@ -1,6 +1,7 @@
 .item {
   width: 30px;
   height: 30px;
+  cursor: pointer;
   overflow: hidden;
   position: relative;
   text-align: center;
@@ -13,6 +14,7 @@
   top: 0;
   width: 100%;
   font-size: 0;
+  filter: brightness(0.3);
 }
 
 .time {
@@ -31,15 +33,28 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.75);
   transform: translate3d(-25%, 0, 0);
+  // animation: moveDeno 400s linear forwards;
 }
 
 .active {
-  animation: timeDeno 0.7s 5 ease-in reverse;
+  animation: timeDeno 0.7s 5 linear reverse;
+  .img {
+    filter: brightness(1);
+  }
   .time {
     opacity: 0;
   }
   .mask {
     background-color: transparent;
+  }
+}
+
+@keyframes moveDeno {
+  from {
+    transform: translate3d(-25%, 0, 0);
+  }
+  to {
+    transform: translate3d(-25%, 100%, 0);
   }
 }
 
