@@ -8,13 +8,13 @@ import style from "./style.module.scss";
 
 export default function SkillBar() {
   const { user } = useStore(checkUser);
-  const [current, setCurrent] = useState(user);
+  const [current, setCurrent] = useState(JSON.parse(JSON.stringify(user)));
   const [active, setActive] = useState(null);
 
   const backClick = () => {
-    skillChange();
     setActive(null);
-    setCurrent(checkUser.get().user);
+    setCurrent(JSON.parse(JSON.stringify(user)));
+    skillChange();
   };
 
   const saveClick = () => {
