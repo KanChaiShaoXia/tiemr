@@ -37,7 +37,7 @@ export default function Index() {
         {openStatus && <SkillBar />}
       </View>
       <View className="copy" onClick={outList}>
-        复制
+        copy
       </View>
       <View className="close">×</View>
     </View>

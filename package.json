@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"description": "timer",
+	"homepage": "./",
 	"templateInfo": {
 		"name": "default",
 		"typescript": true,
@@ -74,6 +75,7 @@
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-plugin-transform-runtime": "^6.23.0",
 		"babel-preset-env": "^1.6.1",
+		"electron": "^9.0.0",
 		"eslint": "^5.16.0",
 		"eslint-config-taro": "2.2.4",
 		"eslint-plugin-import": "^2.12.0",
