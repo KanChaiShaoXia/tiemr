@@ -30,6 +30,7 @@ export default function Index() {
 
   return (
     <View className="wrapper" onContextMenu={e => e.preventDefault()}>
+      <View className="moveBar" />
       <View className={`${!openStatus ? "skillOpen" : "skillClose"}`}>
         <UserBox userList={userList} />
       </View>
