@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 80px;
   .btn:hover {
     cursor: pointer;
     transition: color 0.1s;
@@ -16,9 +17,9 @@
   }
 }
 
-.btn:nth-child(2) {
-  margin-left: 10px;
-}
+// .btn:nth-child(2) {
+  // margin-left: 10px;
+// }
 
 .userBox {
   display: flex;
