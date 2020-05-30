@@ -2,21 +2,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-flow: column;
 }
 
 .user {
   transition: background-color 0.1s;
   font-size: 12px;
-  height: 50px;
-  width: 50px;
+  width: 100%;
   background: #011c2f;
   text-align: center;
-  line-height: 48px;
-  border: 2px solid #785a28;
-  border-radius: 50%;
+  line-height: 26px;
+  border-top: 2px solid transparent;
   cursor: pointer;
   position: relative;
-  margin-right: 5px;
 }
 
 .change {
@@ -34,11 +32,16 @@
 }
 
 .user:hover {
-  background: transparent;
+  // background: transparent;
+  border-top: 2px solid #785a28;
   .change {
     opacity: 1;
   }
   .name {
     opacity: 0;
   }
+}
+
+.skillBox {
+  display: flex;
 }

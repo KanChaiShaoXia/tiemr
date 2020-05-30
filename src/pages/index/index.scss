@@ -62,8 +62,9 @@
 }
 
 .moveBar {
+  cursor: move;
   position: absolute;
-  height: calc(100% + 6px);
+  height: 10px;
   top: -3px;
   left: 0;
   z-index: 0;

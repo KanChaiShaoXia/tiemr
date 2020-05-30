@@ -2,6 +2,7 @@ import { useState, useEffect } from "@tarojs/taro";
 import { Store } from "laco";
 import { deepClone } from "noahsark";
 import { data } from "../constant";
+import Language from "../Language";
 
 export function useStore(store) {
   const [state, setState] = useState(store.get());
@@ -18,23 +19,23 @@ export const timers = new Store(
   {
     userList: [
       {
-        name: "上单",
+        name: Language.chinese.top,
         skill: [data["shanxian"], data["chuansong"]]
       },
       {
-        name: "打野",
+        name: Language.chinese.jungle,
         skill: [data["shanxian"], data["chengjie"]]
       },
       {
-        name: "中单",
+        name: Language.chinese.mid,
         skill: [data["shanxian"], data["yinran"]]
       },
       {
-        name: "ADC",
+        name: Language.chinese.adc,
         skill: [data["shanxian"], data["zhiliao"]]
       },
       {
-        name: "辅助",
+        name: Language.chinese.support,
         skill: [data["shanxian"], data["xuruo"]]
       }
     ]

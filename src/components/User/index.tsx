@@ -2,6 +2,7 @@ import Taro from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import { Icon } from "../index";
 import { skillChange, checkActiveUser } from "../../store";
+import Language from "../../Language";
 import style from "./style.module.scss";
 
 export default function User(props) {
@@ -15,11 +16,11 @@ export default function User(props) {
     <View className={style.wrapper}>
       <View className={style.user}>
         <View className={style.change} onClick={clickItem}>
-          修改
+          {Language.chinese.change}
         </View>
         <View className={style.name}>{item.name}</View>
       </View>
-      <View>
+      <View className={style.skillBox}>
         {item.skill.map(skill => (
           <Icon skill={skill} uesr={item} key={skill.type} />
         ))}

@@ -3,6 +3,7 @@ import Taro from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import { switchSkillStatus, timers, useStore } from "../../store";
 import { SkillBar } from "../../components";
+import { hitClose } from "aardio";
 import UserBox from "./userBox";
 import { sTom } from "../../tools";
 import "./index.scss";
@@ -28,6 +29,10 @@ export default function Index() {
     Taro.setClipboardData({ data: result });
   };
 
+  const closeWindow = () => {
+    hitClose();
+  };
+
   return (
     <View className="wrapper" onContextMenu={e => e.preventDefault()}>
       <View className="moveBar" />
@@ -40,7 +45,9 @@ export default function Index() {
       <View className="copy" onClick={outList}>
         copy
       </View>
-      <View className="close">×</View>
+      <View className="close" onClick={closeWindow}>
+        ×
+      </View>
     </View>
   );
 }
