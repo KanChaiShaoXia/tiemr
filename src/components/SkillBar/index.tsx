@@ -40,10 +40,10 @@ export default function SkillBar() {
     <View className={style.wrapper}>
       <View className={style.btns}>
         <View className={style.btn} onClick={backClick}>
-          返回
+          ✘
         </View>
         <View className={style.btn} onClick={saveClick}>
-          保存
+          ✓
         </View>
       </View>
       <View className={style.userBox}>

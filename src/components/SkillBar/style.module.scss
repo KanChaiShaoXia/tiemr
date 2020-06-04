@@ -9,17 +9,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80px;
+  width: 50px;
+  .btn {
+    width: 50%;
+    text-align: center;
+  }
   .btn:hover {
     cursor: pointer;
     transition: color 0.1s;
     color: #f0e6d2;
   }
 }
-
-// .btn:nth-child(2) {
-  // margin-left: 10px;
-// }
 
 .userBox {
   display: flex;

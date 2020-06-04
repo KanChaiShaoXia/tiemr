@@ -2,6 +2,7 @@
 import Taro from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import { switchSkillStatus, timers, useStore } from "../../store";
+import Language from "../../Language";
 import { SkillBar } from "../../components";
 import UserBox from "./userBox";
 import { sTom } from "../../tools";
@@ -10,10 +11,6 @@ import "./index.scss";
 export default function Index() {
   const { openStatus } = useStore(switchSkillStatus);
   const { userList } = useStore(timers);
-
-  const closeWindow = () => {
-    window.postMessage("close", "window");
-  };
 
   const outList = () => {
     let result = "";
@@ -42,10 +39,7 @@ export default function Index() {
         {openStatus && <SkillBar />}
       </View>
       <View className="copy" onClick={outList}>
-        copy
-      </View>
-      <View className="close" onClick={closeWindow}>
-        ×
+        {Language.chinese.copy}
       </View>
     </View>
   );

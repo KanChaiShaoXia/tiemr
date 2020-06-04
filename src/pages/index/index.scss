@@ -1,7 +1,7 @@
 .wrapper {
   overflow: hidden;
   display: flex;
-  height: 80px;
+  height: 100vh;
   border: 3px solid #785a28;
   background: linear-gradient(#014361, #011c2f);
   color: #cdbe91;
@@ -34,8 +34,7 @@
   width: 100%;
 }
 
-.copy,
-.close {
+.copy {
   width: 30px;
   font-size: 20px;
   height: 20px;
@@ -44,21 +43,14 @@
   cursor: pointer;
   transition: color 0.3s;
   color: #785a28;
+  white-space: nowrap;
+  font-size: 12px;
   &:hover {
     color: #f0e6d2;
   }
-}
-
-.close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  line-height: 17px;
-}
-
-.copy {
-  white-space: nowrap;
-  font-size: 12px;
+  &:active {
+    color: #785a28;
+  }
 }
 
 .moveBar {
