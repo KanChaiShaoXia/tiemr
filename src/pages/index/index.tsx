@@ -11,6 +11,10 @@ export default function Index() {
   const { openStatus } = useStore(switchSkillStatus);
   const { userList } = useStore(timers);
 
+  const closeWindow = () => {
+    window.postMessage("close", "window");
+  };
+
   const outList = () => {
     let result = "";
     for (let i = 0; i < userList.length; i++) {
@@ -39,6 +43,9 @@ export default function Index() {
       </View>
       <View className="copy" onClick={outList}>
         copy
+      </View>
+      <View className="close" onClick={closeWindow}>
+        ×
       </View>
     </View>
   );
